@@ -14,7 +14,7 @@ export class GithubEventsService {
     return this.http.get<any[]>(this.apiUrl);  
   }  
 
-  getRepoEvents(repo: string): Observable<any[]> {  
-    return this.http.get<any[]>(`${this.apiUrl}?repo=${repo}`);  
+  getRepoEvents(owner: string ,repo: string): Observable<any[]> {  
+    return this.http.get<any[]>(`${this.apiUrl}/repos/${owner}/${repo}/events`);  
   }  
 }
