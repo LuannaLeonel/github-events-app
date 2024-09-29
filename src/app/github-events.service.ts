@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';  
-import { HttpClient } from '@angular/common/http';  
-import { Observable } from 'rxjs';  
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
-@Injectable({  
+@Injectable({
   providedIn: 'root',
-})  
-export class GithubEventsService {  
-  private apiUrl = 'https://api.github.com/events';  
+})
+export class GithubEventsService {
+  private apiUrl = 'https://api.github.com';  // Base URL correta
 
-  constructor(private http: HttpClient) {}  
+  constructor(private http: HttpClient) {}
 
-  getPublicEvents(): Observable<any[]> {  
-    return this.http.get<any[]>(this.apiUrl);  
-  }  
+  getPublicEvents(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/events`);
+  }
 
-  getRepoEvents(owner: string ,repo: string): Observable<any[]> {  
-    return this.http.get<any[]>(`${this.apiUrl}/repos/${owner}/${repo}/events`);  
-  }  
+  getRepoEvents(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/repos/rails/rails/events`);
+  }
 }
