@@ -15,22 +15,32 @@
     </li>
   </ul>
 
-  <label for="eventType">Escolha um tipo de evento:</label>
-  <select id="eventType" [(ngModel)]="selectedEventType">
+  <label for="eventType">Escolha um tipo de evento (Público):</label>
+  <select id="publicEventType" [(ngModel)]="selectedEventType">
     <option value="">Todos</option>
     <option *ngFor="let eventType of eventTypes" [value]="eventType">{{ eventType }}</option>
   </select>
 
-  <button (click)="filterEvents()">Filtrar Eventos</button>
-
-  <button (click)="repoEventCount = countRepoEventsByType(selectedEventType)">
-    Contar Eventos do Tipo Selecionado
-  </button>
-  <p>Count: {{ repoEventCount }}</p>
+  <button (click)="filterEventsByType()">Filtrar Eventos Públicos</button>
 
   <h2>Eventos Públicos Filtrados</h2>
   <ul>
     <li *ngFor="let event of filteredPublicEvents">
+      {{ event.type }} - {{ event.created_at }}
+    </li>
+  </ul>
+
+  <label for="repoEventType">Escolha um tipo de evento (Repositório):</label>
+  <select id="repoEventType" [(ngModel)]="selectedRepoEventType">
+    <option value="">Todos</option>
+    <option *ngFor="let eventType of eventTypes" [value]="eventType">{{ eventType }}</option>
+  </select>
+
+  <button (click)="filterRepoEventsByType()">Filtrar Eventos do Repositório</button>
+
+  <h2>Eventos Filtrados do Repositório Alvo</h2>
+  <ul>
+    <li *ngFor="let event of filteredRepoEvents">
       {{ event.type }} - {{ event.created_at }}
     </li>
   </ul>
