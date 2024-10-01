@@ -1,0 +1,86 @@
+/* Reseta estilos padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo geral da página */
+body {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  padding: 20px;
+}
+
+/* Container principal */
+div {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #3b3b3b;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Títulos */
+h1, h2 {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+/* Botões */
+button {
+  background-color: #5a5a5a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #777;
+}
+
+/* Listas de eventos */
+.event-list {
+  list-style-type: none;
+  margin: 15px 0;
+}
+
+.event-list li {
+  padding: 10px;
+  border-bottom: 1px solid #555;
+  color: #dcdcdc;
+}
+
+/* Estilo dos inputs */
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+select {
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #666;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #4b4b4b;
+  color: #ffffff;
+  width: 100%;
+}

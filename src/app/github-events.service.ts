@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GithubEventsService {
-  private apiUrl = 'https://api.github.com';  // Base URL correta
+  private apiUrl = 'https://api.github.com';
 
   constructor(private http: HttpClient) {}
 
