@@ -2,30 +2,32 @@
   <h1>{{ title }}</h1>
 
   <button (click)="loadPublicEvents()">Carregar Eventos Públicos</button>
-  <ul>
+  <h2>Eventos Públicos</h2>
+  <ul class="event-list">
     <li *ngFor="let event of publicEvents">
       {{ event.type }} - {{ event.created_at }}
     </li>
   </ul>
 
   <button (click)="loadRepoEvents()">Carregar Eventos do Repositório</button>
-  <ul>
+  <h2>Eventos do Repositório</h2>
+  <ul class="event-list">
     <li *ngFor="let event of repoEvents">
       {{ event.type }} - {{ event.created_at }}
     </li>
   </ul>
 
-  <label for="eventType">Escolha um tipo de evento (Público):</label>
+  <label for="publicEventType">Escolha um tipo de evento (Público):</label>
   <select id="publicEventType" [(ngModel)]="selectedEventType">
     <option value="">Todos</option>
-    <option *ngFor="let eventType of eventTypes" [value]="eventType">{{ eventType }}</option>
+    <option *ngFor="let eventType of getDistinctEventTypes()" [value]="eventType">{{ eventType }}</option>
   </select>
 
-  <button (click)="filterEventsByType()">Filtrar Eventos Públicos</button>
+  <button (click)="filterPublicEvents()">Filtrar Eventos Públicos</button>
 
   <h2>Eventos Públicos Filtrados</h2>
-  <ul>
-    <li *ngFor="let event of filteredPublicEvents">
+  <ul class="event-list">
+    <li *ngFor="let event of filterPublicEvents()">
       {{ event.type }} - {{ event.created_at }}
     </li>
   </ul>
@@ -33,14 +35,14 @@
   <label for="repoEventType">Escolha um tipo de evento (Repositório):</label>
   <select id="repoEventType" [(ngModel)]="selectedRepoEventType">
     <option value="">Todos</option>
-    <option *ngFor="let eventType of eventTypes" [value]="eventType">{{ eventType }}</option>
+    <option *ngFor="let eventType of getDistinctRepoEventTypes()" [value]="eventType">{{ eventType }}</option>
   </select>
 
-  <button (click)="filterRepoEventsByType()">Filtrar Eventos do Repositório</button>
+  <button (click)="filterRepoEvents()">Filtrar Eventos do Repositório</button>
 
   <h2>Eventos Filtrados do Repositório Alvo</h2>
-  <ul>
-    <li *ngFor="let event of filteredRepoEvents">
+  <ul class="event-list">
+    <li *ngFor="let event of filterRepoEvents()">
       {{ event.type }} - {{ event.created_at }}
     </li>
   </ul>
