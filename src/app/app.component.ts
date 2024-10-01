@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { orderBy } from '../utils';
 import { GithubEventsService } from './github-events.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
   loadPublicEvents(): void {
     this.githubEventsService.getPublicEvents().subscribe(
       (data) => {
-        this.publicEvents = data;
+        this.publicEvents = orderBy(data,'type');
       },
       (error) => {
         console.error('Erro ao carregar eventos públicos:', error);
@@ -35,7 +36,7 @@ export class AppComponent implements OnInit {
   loadRepoEvents(): void {
     this.githubEventsService.getRepoEvents().subscribe(
       (data) => {
-        this.repoEvents = data;
+        this.repoEvents = orderBy(data,'type');
       },
       (error) => {
         console.error('Erro ao carregar eventos do repositório', error);
